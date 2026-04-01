@@ -1,0 +1,22 @@
+<style>
+/* Tambahkan ini di dalam tag <style> yang sudah ada */
+.nav-links a.active {
+    color: #FFD700 !important;
+    position: relative;
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #FFD700;
+}
+
+#backToTop:hover {
+    transform: scale(1.1);
+    background: #A0522D;
+}
+</style>
