@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tembakau Premium - Kualitas Terbaik</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #8B4513, #D2691E);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 15px rgba(37,211,102,0.4);
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(139,69,19,0.8), rgba(210,105,30,0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f5f5f5" width="1200" height="600"/><path fill="%238B4513" opacity="0.3" d="M0 300 Q300 100 600 300 T1200 300 V600 H0 Z"/></svg>');
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .container {
+            padding: 0 2rem;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #8B4513;
+        }
+
+        /* Products */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            color: #25D366;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10000;
+        }
+
+        .chat-toggle {
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(37,211,102,0.4);
+            transition: all 0.3s;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .chat-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-box {
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .chat-header {
+            background: #25D366;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+
+        .message.bot {
+            background: #25D366;
+            color: white;
+            margin-left: auto;
+        }
+
+        .message.user {
+            background: #e9ecef;
+            margin-right: auto;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .chat-input input {
+            flex: 1;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 0.8rem 1rem;
+            outline: none;
+        }
+
+        .chat-input button {
+            background: #25D366;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 0.5rem;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c1810;
+            color: white;
+            text-align: center;
+            padding: 3rem 0 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #FFD700;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .chat-box {
+                width: 300px;
+                height: 450px;
+                right: 20px;
+                bottom: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-leaf"></i> Tembakau Premium
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#products">Produk</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20pesan%20tembakau" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Chat WA
+            </a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content container">
+            <h1>Tembakau Premium</h1>
+            <p>Kualitas Terbaik dari Petani Lokal Indonesia</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/6281234567890?text=Saya%20ingin%20pesan%20tembakau%20premium" class="btn btn-primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                </a>
+                <a href="#products" class="btn btn-secondary">
+                    Lihat Produk
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <div class="container">
+            <h2>Produk Unggulan</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1581116851061-eeeb3a1af9eb?w=300&h=200&fit=crop" alt="Tembakau Virginia">
+                    <h3>Tembakau Virginia</h3>
+                    <p class="price">Rp 150.000 / kg</p>
+                    <a href="https://wa.me/6281234567890?text=Saya%20ingin%20pesan%20Tembakau%20Virginia" class="btn btn-primary" target="_blank">Pesan</a>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1574098766706-d1d38b1c8185?w=300&h=200&fit=crop" alt="Tembakau Burley">
+                    <h3>Tembakau Burley</h3>
+                    <p class="price">Rp 120.000 / kg</p>
+                    <a href="https://wa.me/6281234567890?text=Saya%20ingin%20pesan%20Tembakau%20Burley" class="btn btn-primary" target="_blank">Pesan</a>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=300&h=200&fit=crop" alt="Tembakau Oriental">
+                    <h3>Tembakau Oriental</h3>
+                    <p class="price">Rp 180.000 / kg</p>
+                    <a href="https://wa.me/6281234567890?text=Saya%20ingin%20pesan%20Tembakau%20Oriental" class="btn btn-primary" target="_blank">Pesan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="background: #f8f9fa;">
+        <div class="container">
+            <h2>Tentang Kami</h2>
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                    Kami adalah produsen tembakau premium yang bekerja sama langsung dengan petani lokal di Jawa Timur. 
+                    Setiap daun tembakau dipilih dengan teliti untuk menjamin kualitas terbaik.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                    <div>
+                        <i class="fas fa-leaf" style="font-size: 3rem; color: #8B4513;"></i>
+                        <h4>100% Alami</h4>
+                    </div>
+                    <div>
+                        <i class="fas fa-shipping-fast" style="font-size: 3rem; color: #8B4513;"></i>
+                        <h4>Pengiriman Cepat</h4>
+                    </div>
+                    <div>
+                        <i class="fas fa-shield-alt" style="font-size: 3rem; color: #8B4513;"></i>
+                        <h4>Garansi Kualitas</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-toggle" onclick="toggleChat()">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <span><i class="fas fa-robot"></i> Asisten Tembakau</span>
+                <i class="fas fa-times" onclick="toggleChat()" style="cursor: pointer;"></i>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">Halo! Selamat datang di Tembakau Premium. Ada yang bisa saya bantu?</div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Ketik pesan..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <h2>Kontak Kami</h2>
+            <p style="margin-bottom: 2rem;">Siap melayani kebutuhan tembakau Anda 24/7</p>
+            <div class="social-links">
+                <a href="https://wa.me/6281234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://instagram.com/tembakaupremium" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="tel:+6281234567890"><i class="fas fa-phone"></i></a>
+            </div>
+            <p>&copy; 2024 Tembakau Premium. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+
+   <script>
+// Smooth scrolling untuk semua link anchor
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Navbar scroll effect
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    
+    if (scrollTop > lastScroll && scrollTop > 100) {
+        // Scroll down - hide header
+        header.style.transform = 'translateY(-100%)';
+    } else {
+        // Scroll up - show header
+        header.style.transform = 'translateY(0)';
+    }
+    lastScroll = scrollTop;
+});
+
+// Active navbar link on scroll
+window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('section');
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= (sectionTop - 200)) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Chat widget functionality
+function toggleChat() {
+    const chatBox = document.getElementById('chatBox');
+    const chatToggle = document.querySelector('.chat-toggle');
+    
+    if (chatBox.style.display === 'flex') {
+        chatBox.style.display = 'none';
+        chatToggle.innerHTML = '<i class="fas fa-comments"></i>';
+    } else {
+        chatBox.style.display = 'flex';
+        chatToggle.innerHTML = '<i class="fas fa-times"></i>';
+    }
+}
+
+function sendMessage() {
+    const input = document.getElementById('chatInput');
+    const messages = document.getElementById('chatMessages');
+    const message = input.value.trim();
+
+    if (message === '') return;
+
+    // Add user message
+    const userMsg = document.createElement('div');
+    userMsg.className = 'message user';
+    userMsg.textContent = message;
+    messages.appendChild(userMsg);
+
+    // Clear input
+    input.value = '';
+
+    // Show typing indicator
+    const typingIndicator = document.createElement('div');
+    typingIndicator.className = 'message bot';
+    typingIndicator.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Sedang mengetik...';
+    messages.appendChild(typingIndicator);
+    messages.scrollTop = messages.scrollHeight;
+
+    // Bot responses based on keywords
+    setTimeout(() => {
+        messages.removeChild(typingIndicator);
+        
+        let response = getBotResponse(message.toLowerCase());
+        
+        const botMsg = document.createElement('div');
+        botMsg.className = 'message bot';
+        botMsg.innerHTML = response;
+        messages.appendChild(botMsg);
+        messages.scrollTop = messages.scrollHeight;
+    }, 1500);
+}
+
+function getBotResponse(message) {
+    const responses = {
+        'halo': 'Halo! Selamat datang di Tembakau Premium. Ada yang bisa saya bantu? 😊',
+        'hai': 'Hai! Mau pesan tembakau premium? Kualitas terbaik dari petani lokal!',
+        'harga': 'Harga tembakau:<br>• Virginia: Rp 150.000/kg<br>• Burley: Rp 120.000/kg<br>• Oriental: Rp 180.000/kg<br><br>Klik WhatsApp untuk order!',
+        'virginia': 'Tembakau Virginia Rp 150.000/kg. Rasa lembut dan aroma khas!',
+        'burley': 'Tembakau Burley Rp 120.000/kg. Cocok untuk kretek premium!',
+        'oriental': 'Tembakau Oriental Rp 180.000/kg. Import kualitas ekspor!',
+        'pesan': 'Yuk langsung chat WhatsApp untuk pesan! 📱<br><a href="https://wa.me/6281234567890?text=Saya%20ingin%20pesan%20tembakau" target="_blank" style="color:#fff;background:#25D366;padding:0.5rem 1rem;border-radius:20px;text-decoration:none;font-weight:bold;">Pesan Sekarang</a>',
+        'order': 'Siap melayani order Anda! Klik tombol WhatsApp di pojok kanan bawah 📲',
+        'kontak': 'Kontak kami:<br>📱 WA: 0812-3456-7890<br>📍 Jawa Timur',
+        'terima kasih': 'Sama-sama! Semoga puas dengan produk kami. Sukses selalu! 🙏',
+        default: [
+            'Tertarik produk mana? Virginia, Burley, atau Oriental?',
+            'Kami punya tembakau kualitas premium dari petani lokal!',
+            'Pesan sekarang dan dapatkan pengiriman cepat ke seluruh Indonesia!',
+            'Klik tombol WhatsApp untuk order langsung ya! 📱',
+            'Ada yang ingin ditanyakan tentang produk kami?'
+        ]
+    };
+
+    for (const key in responses) {
+        if (message.includes(key)) {
+            if (typeof responses[key] === 'string') {
+                return responses[key];
+            }
+        }
+    }
+
+    const defaultResponses = responses.default;
+    return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+}
+
+function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+}
+
+// WhatsApp quick reply buttons
+function initWhatsAppButtons() {
+    const waLinks = document.querySelectorAll('a[href*="wa.me"]');
+    waLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Track WhatsApp clicks (optional analytics)
+            console.log('WhatsApp button clicked');
+        });
+    });
+}
+
+// Product cards hover animation
+document.addEventListener('DOMContentLoaded', function() {
+    const productCards = document.querySelectorAll('.product-card');
+    productCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-15px) scale(1.02)';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    // Initialize WhatsApp buttons
+    initWhatsAppButtons();
+
+    // Preload welcome message
+    setTimeout(() => {
+        const welcomeMsg = document.createElement('div');
+        welcomeMsg.className = 'message bot';
+        welcomeMsg.innerHTML = '<strong>Promo!</strong> Order 5kg gratis ongkir Jawa!<br>Pesan sekarang yuk! 🚚';
+        document.getElementById('chatMessages').appendChild(welcomeMsg);
+    }, 3000);
+});
+
+// Intersection Observer untuk animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe sections for scroll animations
+document.querySelectorAll('section').forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(30px)';
+    section.style.transition = 'all 0.6s ease';
+    observer.observe(section);
+});
+
+// Back to top button (optional)
+function createBackToTop() {
+    const backToTop = document.createElement('div');
+    backToTop.innerHTML = '<i class="fas fa-chevron-up"></i>';
+    backToTop.style.cssText = `
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        background: #8B4513;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 9999;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 15px rgba(139,69,19,0.4);
+        transition: all 0.3s;
+    `;
+    backToTop.id = 'backToTop';
+    document.body.appendChild(backToTop);
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backToTop.style.display = 'flex';
+        } else {
+            backToTop.style.display = 'none';
+        }
+    });
+
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// Initialize back to top
+createBackToTop();
+
+// Copy phone number function
+function copyPhoneNumber() {
+    navigator.clipboard.writeText('081234567890').then(() => {
+        // Show copied message (optional)
+        console.log('Phone number copied!');
+    });
+}
+</script>
